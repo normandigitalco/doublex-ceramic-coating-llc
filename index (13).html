@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DoubleX Ceramic Coating LLC | Dallas, TX</title>
+<link rel="icon" type="image/jpeg" href="IMG_6466.jpg">
+<link rel="apple-touch-icon" href="IMG_6466.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #C8102E;
+    --red-dark: #960C22;
+    --red-glow: rgba(200,16,46,0.35);
+    --black: #080808;
+    --black2: #0f0f0f;
+    --dark: #141414;
+    --dark2: #1c1c1c;
+    --silver: #c0c0c0;
+    --silver-light: #e8e8e8;
+    --white: #f5f5f5;
+    --text-muted: #888;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── PAGE SYSTEM ── */
+  .page { display: none; min-height: 100vh; }
+  .page.active { display: block; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(8,8,8,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,16,46,0.2);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 88px;
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px; cursor: pointer;
+  }
+  .nav-logo img {
+    height: 68px; width: auto;
+  }
+
+  .nav-links {
+    display: flex; gap: 0; list-style: none;
+  }
+  .nav-links li a {
+    display: block; padding: 8px 18px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--silver); transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links li a::after {
+    content: ''; position: absolute; bottom: 0; left: 18px; right: 18px;
+    height: 1px; background: var(--red);
+    transform: scaleX(0); transition: transform 0.25s;
+  }
+  .nav-links li a:hover, .nav-links li a.active {
+    color: var(--white);
+  }
+  .nav-links li a:hover::after, .nav-links li a.active::after {
+    transform: scaleX(1);
+  }
+
+  .nav-cta {
+    background: var(--red); color: #fff !important;
+    padding: 10px 22px !important; font-size: 12px !important;
+    letter-spacing: 2px !important;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--red-dark); }
+
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 8px;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--silver); transition: 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none; position: fixed; top: 88px; left: 0; right: 0;
+    background: rgba(8,8,8,0.98); z-index: 999;
+    padding: 20px 0; border-bottom: 1px solid rgba(200,16,46,0.3);
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block; padding: 14px 30px;
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 600;
+    font-size: 16px; letter-spacing: 2px; text-transform: uppercase;
+    text-decoration: none; color: var(--silver);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .mobile-menu a:hover { color: var(--white); background: rgba(200,16,46,0.1); }
+
+  /* ══════════════════════════════
+     HOME PAGE
+  ══════════════════════════════ */
+  .hero {
+    position: relative; height: 100vh; min-height: 600px;
+    display: flex; align-items: center; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('IMG_6446.jpg') center/cover no-repeat;
+    transform: scale(1.05);
+    animation: heroZoom 20s ease-in-out infinite alternate;
+  }
+  @keyframes heroZoom {
+    from { transform: scale(1.05); }
+    to { transform: scale(1.12); }
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg,
+      rgba(8,8,8,0.88) 0%,
+      rgba(8,8,8,0.6) 50%,
+      rgba(200,16,46,0.12) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2; padding: 0 8%;
+    max-width: 700px;
+  }
+  .hero-badge {
+    display: inline-block; margin-bottom: 20px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px;
+    font-weight: 600; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--red); border: 1px solid var(--red);
+    padding: 5px 14px;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 10vw, 110px);
+    line-height: 0.9; color: var(--white);
+    text-shadow: 0 0 60px rgba(200,16,46,0.3);
+    margin-bottom: 6px;
+  }
+  .hero h1 span { color: var(--red); }
+  .hero-sub {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 4vw, 46px);
+    color: var(--silver); letter-spacing: 4px;
+    margin-bottom: 24px;
+  }
+  .hero p {
+    font-size: 16px; font-weight: 300; line-height: 1.7;
+    color: rgba(245,245,245,0.75); max-width: 480px;
+    margin-bottom: 36px;
+  }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-block; padding: 14px 36px;
+    background: var(--red); color: #fff;
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
+    text-decoration: none; cursor: pointer; border: none;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-block; padding: 14px 36px;
+    background: transparent; color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
+    text-decoration: none; cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--red); color: var(--red); }
+
+  .hero-scroll {
+    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+    z-index: 2; text-align: center; cursor: pointer;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-8px); }
+  }
+  .hero-scroll span {
+    display: block; font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px; letter-spacing: 3px; color: var(--text-muted);
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .hero-scroll::after {
+    content: ''; display: block; width: 1px; height: 40px;
+    background: linear-gradient(to bottom, var(--red), transparent);
+    margin: 0 auto;
+  }
+
+  /* Stats bar */
+  .stats-bar {
+    background: var(--dark2);
+    border-top: 1px solid rgba(200,16,46,0.2);
+    border-bottom: 1px solid rgba(200,16,46,0.2);
+    padding: 28px 8%;
+    display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 42px;
+    color: var(--red); line-height: 1;
+  }
+  .stat-label {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted);
+  }
+
+  /* Section base */
+  .section { padding: 100px 8%; }
+  .section-tag {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px;
+    letter-spacing: 4px; text-transform: uppercase; color: var(--red);
+    margin-bottom: 12px; display: block;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(42px, 6vw, 72px);
+    color: var(--white); line-height: 1; margin-bottom: 20px;
+  }
+  .section-title span { color: var(--red); }
+  .section-body {
+    font-size: 16px; font-weight: 300; line-height: 1.8;
+    color: rgba(245,245,245,0.7); max-width: 560px;
+  }
+
+  /* Home services preview */
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    margin-top: 60px;
+  }
+  .service-card {
+    position: relative; overflow: hidden; cursor: pointer;
+    aspect-ratio: 1/1;
+  }
+  .service-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .service-card:hover img { transform: scale(1.08); }
+  .service-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(8,8,8,0.9) 0%, transparent 60%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 24px;
+  }
+  .service-card h3 {
+    font-family: 'Bebas Neue', sans-serif; font-size: 26px;
+    color: var(--white); margin-bottom: 4px;
+  }
+  .service-card p {
+    font-size: 13px; color: rgba(245,245,245,0.6); line-height: 1.5;
+  }
+  .service-card-tag {
+    position: absolute; top: 16px; left: 16px;
+    background: var(--red); color: #fff;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 10px;
+    letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px;
+  }
+
+  /* Why us */
+  .why-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    align-items: center; margin-top: 60px;
+  }
+  .why-img { position: relative; }
+  .why-img img {
+    width: 100%; height: 500px; object-fit: cover;
+  }
+  .why-img::before {
+    content: ''; position: absolute;
+    top: -16px; left: -16px; right: 16px; bottom: 16px;
+    border: 1px solid var(--red); z-index: -1;
+  }
+  .why-features { display: flex; flex-direction: column; gap: 28px; }
+  .why-feature {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .why-feature:last-child { border-bottom: none; padding-bottom: 0; }
+  .why-icon {
+    width: 48px; height: 48px; flex-shrink: 0;
+    background: rgba(200,16,46,0.12);
+    border: 1px solid rgba(200,16,46,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .why-feature h4 {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 17px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--white); margin-bottom: 6px;
+  }
+  .why-feature p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+  /* CTA banner */
+  .cta-banner {
+    background: var(--red); padding: 60px 8%;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 24px;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 99% 100%, 1% 100%, 0 80%);
+  }
+  .cta-banner h2 {
+    font-family: 'Bebas Neue', sans-serif; font-size: clamp(32px, 4vw, 52px);
+    color: #fff; line-height: 1;
+  }
+  .cta-banner p { font-size: 15px; color: rgba(255,255,255,0.8); margin-top: 8px; }
+  .btn-white {
+    display: inline-block; padding: 14px 36px;
+    background: #fff; color: var(--red);
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
+    text-decoration: none; cursor: pointer; border: none;
+    white-space: nowrap;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    transition: background 0.2s;
+  }
+  .btn-white:hover { background: var(--silver-light); }
+
+  /* Testimonials */
+  .testimonials { background: var(--dark); }
+  .testimonials-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    margin-top: 60px;
+  }
+  .testimonial-card {
+    background: var(--dark2); padding: 32px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-top: 3px solid var(--red);
+    transition: transform 0.2s;
+  }
+  .testimonial-card:hover { transform: translateY(-4px); }
+  .stars { color: var(--red); font-size: 14px; margin-bottom: 16px; }
+  .testimonial-card p {
+    font-size: 15px; color: rgba(245,245,245,0.7); line-height: 1.8;
+    font-style: italic; margin-bottom: 20px;
+  }
+  .testimonial-author {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--silver);
+  }
+
+  /* ══════════════════════════════
+     ABOUT PAGE
+  ══════════════════════════════ */
+  .page-hero {
+    height: 50vh; min-height: 360px; position: relative;
+    display: flex; align-items: flex-end; padding: 0 8% 60px;
+    overflow: hidden;
+  }
+  .page-hero-bg {
+    position: absolute; inset: 0;
+    background-position: center; background-size: cover;
+  }
+  .page-hero-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.5) 60%, rgba(8,8,8,0.3) 100%);
+  }
+  .page-hero-content { position: relative; z-index: 2; }
+  .page-hero h1 {
+    font-family: 'Bebas Neue', sans-serif; font-size: clamp(50px, 8vw, 90px);
+    color: var(--white); line-height: 1;
+  }
+  .page-hero h1 span { color: var(--red); }
+  .breadcrumb {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 12px;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .breadcrumb span { color: var(--red); }
+
+  .about-intro {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: center;
+  }
+  .about-intro-img { position: relative; }
+  .about-intro-img img {
+    width: 100%; height: 520px; object-fit: cover;
+  }
+  .about-intro-img .img-accent {
+    position: absolute; bottom: -20px; right: -20px;
+    width: 120px; height: 120px; background: var(--red);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+  }
+  .img-accent-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 42px;
+    color: #fff; line-height: 1;
+  }
+  .img-accent-text {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 9px;
+    letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.8);
+    text-align: center;
+  }
+  .about-text h2 {
+    font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px,5vw,58px);
+    color: var(--white); line-height: 1; margin-bottom: 24px;
+  }
+  .about-text h2 span { color: var(--red); }
+  .about-text p {
+    font-size: 16px; font-weight: 300; line-height: 1.9;
+    color: rgba(245,245,245,0.72); margin-bottom: 20px;
+  }
+  .about-vals {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px;
+  }
+  .val-item {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 600;
+    font-size: 14px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--silver);
+  }
+  .val-item::before {
+    content: ''; width: 8px; height: 8px;
+    background: var(--red); flex-shrink: 0;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+
+  .about-process { background: var(--dark); }
+  .process-steps {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    margin-top: 60px; position: relative;
+  }
+  .process-steps::after {
+    content: ''; position: absolute; top: 28px; left: 12%;
+    width: 76%; height: 1px; background: rgba(200,16,46,0.3);
+    z-index: 0;
+  }
+  .step {
+    text-align: center; padding: 0 20px; position: relative; z-index: 1;
+    overflow: hidden;
+  }
+  .step-num {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--red); color: #fff;
+    font-family: 'Bebas Neue', sans-serif; font-size: 24px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 0 24px var(--red-glow);
+  }
+  .step h4 {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 15px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--white); margin-bottom: 10px;
+  }
+  .step p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+
+  /* ══════════════════════════════
+     SERVICES PAGE
+  ══════════════════════════════ */
+  .services-list { display: flex; flex-direction: column; gap: 3px; }
+  .service-row {
+    display: grid; grid-template-columns: 380px 1fr auto;
+    gap: 0; overflow: hidden; position: relative;
+    transition: transform 0.3s;
+  }
+  .service-row:hover { transform: translateX(4px); }
+  .service-row-img {
+    height: 200px; overflow: hidden;
+  }
+  .service-row-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s;
+  }
+  .service-row:hover .service-row-img img { transform: scale(1.06); }
+  .service-row-body {
+    background: var(--dark2); padding: 30px 36px;
+    display: flex; flex-direction: column; justify-content: center;
+    border-left: 2px solid rgba(200,16,46,0.2);
+  }
+  .service-row-body h3 {
+    font-family: 'Bebas Neue', sans-serif; font-size: 30px;
+    color: var(--white); margin-bottom: 10px;
+  }
+  .service-row-body p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+  .service-row-body ul {
+    margin-top: 14px; padding-left: 0; list-style: none;
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .service-row-body ul li {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px;
+    letter-spacing: 1px; text-transform: uppercase;
+    background: rgba(200,16,46,0.1); border: 1px solid rgba(200,16,46,0.25);
+    color: var(--red); padding: 3px 10px;
+  }
+  .service-row-price {
+    background: var(--dark); padding: 30px 36px;
+    display: flex; flex-direction: column; justify-content: center;
+    align-items: center; min-width: 160px;
+    border-left: 2px solid rgba(200,16,46,0.1);
+  }
+  .price-label {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 10px;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .price-val {
+    font-family: 'Bebas Neue', sans-serif; font-size: 38px;
+    color: var(--red); line-height: 1;
+  }
+  .price-note { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+  .services-note {
+    background: rgba(200,16,46,0.06); border: 1px solid rgba(200,16,46,0.2);
+    padding: 28px 36px; margin-top: 40px;
+    display: flex; align-items: center; gap: 20px;
+  }
+  .services-note svg { flex-shrink: 0; }
+  .services-note p { font-size: 15px; color: rgba(245,245,245,0.7); line-height: 1.7; }
+  .services-note strong { color: var(--white); }
+
+  /* ══════════════════════════════
+     GALLERY PAGE
+  ══════════════════════════════ */
+  .gallery-filter {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px;
+  }
+  .filter-btn {
+    padding: 8px 20px; background: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 600;
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-muted); cursor: pointer; transition: 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--red); border-color: var(--red); color: #fff;
+  }
+
+  .gallery-masonry {
+    columns: 3; column-gap: 3px;
+  }
+  .gallery-item {
+    break-inside: avoid; margin-bottom: 3px;
+    overflow: hidden; cursor: pointer; position: relative;
+  }
+  .gallery-item img {
+    width: 100%; display: block;
+    transition: transform 0.5s ease;
+  }
+  .gallery-item:hover img { transform: scale(1.04); }
+  .gallery-item-overlay {
+    position: absolute; inset: 0;
+    background: rgba(8,8,8,0.6);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+  .gallery-item-overlay svg { color: #fff; }
+
+  /* Lightbox */
+  .lightbox {
+    display: none; position: fixed; inset: 0; z-index: 2000;
+    background: rgba(0,0,0,0.94);
+    align-items: center; justify-content: center;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: 90vw; max-height: 90vh; object-fit: contain;
+  }
+  .lightbox-close {
+    position: absolute; top: 24px; right: 28px;
+    font-size: 36px; color: var(--white); cursor: pointer;
+    background: none; border: none; line-height: 1;
+  }
+  .lightbox-prev, .lightbox-next {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(200,16,46,0.3); border: 1px solid var(--red);
+    color: #fff; font-size: 24px; padding: 12px 18px;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .lightbox-prev:hover, .lightbox-next:hover { background: var(--red); }
+  .lightbox-prev { left: 16px; }
+  .lightbox-next { right: 16px; }
+
+  /* ══════════════════════════════
+     CONTACT PAGE
+  ══════════════════════════════ */
+  .contact-layout {
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px;
+  }
+  .contact-info h2 {
+    font-family: 'Bebas Neue', sans-serif; font-size: 46px;
+    color: var(--white); line-height: 1; margin-bottom: 24px;
+  }
+  .contact-info h2 span { color: var(--red); }
+  .contact-info p {
+    font-size: 15px; color: rgba(245,245,245,0.65); line-height: 1.8;
+    margin-bottom: 40px;
+  }
+  .contact-details { display: flex; flex-direction: column; gap: 24px; }
+  .contact-detail {
+    display: flex; gap: 18px; align-items: flex-start;
+  }
+  .contact-detail-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: rgba(200,16,46,0.1); border: 1px solid rgba(200,16,46,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .contact-detail-label {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 10px;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .contact-detail-val {
+    font-size: 16px; font-weight: 600; color: var(--white);
+  }
+  .contact-detail-val a {
+    color: inherit; text-decoration: none; transition: color 0.2s;
+  }
+  .contact-detail-val a:hover { color: var(--red); }
+
+  .social-links {
+    display: flex; gap: 12px; margin-top: 36px;
+  }
+  .social-link {
+    width: 44px; height: 44px;
+    background: var(--dark2); border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; color: var(--silver);
+    font-size: 18px; transition: 0.2s;
+  }
+  .social-link:hover { background: var(--red); border-color: var(--red); color: #fff; }
+
+  /* Form */
+  .contact-form-wrap {
+    background: var(--dark2); padding: 48px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-top: 3px solid var(--red);
+  }
+  .contact-form-wrap h3 {
+    font-family: 'Bebas Neue', sans-serif; font-size: 32px;
+    color: var(--white); margin-bottom: 32px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block; font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 8px;
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; background: var(--dark);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--white); font-family: 'Barlow', sans-serif;
+    font-size: 15px; padding: 12px 16px;
+    transition: border-color 0.2s; outline: none;
+    -webkit-appearance: none;
+  }
+  .form-group select option { background: var(--dark); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--red);
+  }
+  .form-group textarea { min-height: 120px; resize: vertical; }
+  .form-success {
+    display: none; text-align: center; padding: 20px;
+    background: rgba(200,16,46,0.1); border: 1px solid var(--red);
+    color: var(--white); font-size: 15px;
+  }
+
+  .map-wrap { margin-top: 60px; }
+  .map-wrap h3 {
+    font-family: 'Bebas Neue', sans-serif; font-size: 32px;
+    color: var(--white); margin-bottom: 20px;
+  }
+  .map-wrap iframe {
+    width: 100%; height: 340px; border: 0;
+    filter: grayscale(80%) invert(90%) contrast(90%);
+  }
+
+  /* ══════════════════════════════
+     FOOTER
+  ══════════════════════════════ */
+  footer {
+    background: #060606;
+    border-top: 1px solid rgba(200,16,46,0.2);
+    padding: 60px 8% 30px;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px; margin-bottom: 48px;
+  }
+  .footer-brand img { height: 60px; margin-bottom: 16px; }
+  .footer-brand p {
+    font-size: 14px; color: var(--text-muted); line-height: 1.8; max-width: 280px;
+  }
+  .footer-col h4 {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--silver); margin-bottom: 20px;
+    padding-bottom: 10px; border-bottom: 1px solid rgba(200,16,46,0.3);
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul li a {
+    font-size: 14px; color: var(--text-muted); text-decoration: none;
+    transition: color 0.2s; cursor: pointer;
+  }
+  .footer-col ul li a:hover { color: var(--red); }
+  .footer-col p { font-size: 14px; color: var(--text-muted); line-height: 1.9; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 24px; display: flex;
+    align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+  .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.25); }
+  .footer-bottom-links { display: flex; gap: 24px; }
+  .footer-bottom-links a {
+    font-size: 12px; color: rgba(255,255,255,0.25); text-decoration: none;
+    letter-spacing: 1px; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-bottom-links a:hover { color: var(--red); }
+
+  /* ══════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════ */
+  @media (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: 1fr; gap: 40px; }
+    .why-img { display: none; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .service-row { grid-template-columns: 260px 1fr auto; }
+    .about-intro { grid-template-columns: 1fr; }
+    .about-intro-img { display: none; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-steps::after { display: none; }
+    .contact-layout { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 5%; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .section { padding: 70px 5%; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-row { grid-template-columns: 1fr; }
+    .service-row-img { height: 220px; }
+    .service-row-price { flex-direction: row; align-items: center; justify-content: space-between; padding: 16px 24px; }
+    .gallery-masonry { columns: 2; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .contact-form-wrap { padding: 28px 20px; }
+    .about-vals { grid-template-columns: 1fr; }
+    .hero-btns { flex-direction: column; align-items: flex-start; }
+    .cta-banner { clip-path: none; }
+  }
+
+  @media (max-width: 480px) {
+    .gallery-masonry { columns: 1; }
+    .stats-bar { gap: 30px; padding: 28px 5%; }
+    .process-steps { grid-template-columns: 1fr; }
+  }
+
+  /* utility */
+  .pt-nav { padding-top: 88px; }
+  .text-red { color: var(--red); }
+  .divider {
+    width: 48px; height: 3px; background: var(--red); margin: 20px 0 28px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">
+    <img src="IMG_6466.jpg" alt="DoubleX Ceramic Coating">
+  </div>
+  <ul class="nav-links">
+    <li><a href="#" class="active" onclick="showPage('home');return false;">Home</a></li>
+    <li><a href="#" onclick="showPage('about');return false;">About</a></li>
+    <li><a href="#" onclick="showPage('services');return false;">Services</a></li>
+    <li><a href="#" onclick="showPage('gallery');return false;">Gallery</a></li>
+    <li><a href="#" onclick="showPage('contact');return false;">Contact</a></li>
+    <li><a href="tel:4698716863" class="nav-cta">Call Now</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="showPage('home');toggleMenu();return false;">Home</a>
+  <a href="#" onclick="showPage('about');toggleMenu();return false;">About</a>
+  <a href="#" onclick="showPage('services');toggleMenu();return false;">Services</a>
+  <a href="#" onclick="showPage('gallery');toggleMenu();return false;">Gallery</a>
+  <a href="#" onclick="showPage('contact');toggleMenu();return false;">Contact</a>
+  <a href="tel:4698716863" style="color:var(--red)">(469) 871-6863</a>
+</div>
+
+<!-- ═══════════ HOME ═══════════ -->
+<div class="page active" id="page-home">
+
+  <section class="hero">
+    <div class="hero-bg" style="background-image:url('IMG_6447.jpg')"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Dallas, Texas · Mobile Detailing</div>
+      <h1>DOUBLE<span>X</span></h1>
+      <div class="hero-sub">Ceramic Coating</div>
+      <p>Premium paint protection and auto detailing that keeps your vehicle looking showroom-perfect. Serving the Dallas–Fort Worth area.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="showPage('contact')">Get a Free Quote</button>
+        <button class="btn-outline" onclick="showPage('services')">Our Services</button>
+      </div>
+    </div>
+    <div class="hero-scroll" onclick="document.getElementById('home-stats').scrollIntoView({behavior:'smooth'})">
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <div class="stats-bar" id="home-stats">
+    <div class="stat-item">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Vehicles Coated</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">5★</div>
+      <div class="stat-label">Rated on Google</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">9H</div>
+      <div class="stat-label">Hardness Rating</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">DFW</div>
+      <div class="stat-label">Dallas Area Service</div>
+    </div>
+  </div>
+
+  <section class="section">
+    <span class="section-tag">What We Do</span>
+    <h2 class="section-title">Protection<br>at Every<br><span>Level</span></h2>
+    <div class="services-grid">
+      <div class="service-card" onclick="showPage('services')">
+        <img src="IMG_6451.jpg" alt="Ceramic Coating">
+        <div class="service-card-overlay">
+          <h3>Ceramic Coating</h3>
+          <p>Professional-grade nano-ceramic protection</p>
+        </div>
+        <div class="service-card-tag">Most Popular</div>
+      </div>
+      <div class="service-card" onclick="showPage('services')">
+        <img src="IMG_6452.jpg" alt="Ceramic Coating">
+        <div class="service-card-overlay">
+          <h3>Ceramic Coating</h3>
+          <p>Professional-grade nano-ceramic protection</p>
+        </div>
+        <div class="service-card-tag">Most Popular</div>
+      </div>
+      <div class="service-card" onclick="showPage('services')">
+        <img src="IMG_6453.jpg" alt="Ceramic Coating">
+        <div class="service-card-overlay">
+          <h3>Ceramic Coating</h3>
+          <p>Professional-grade nano-ceramic protection</p>
+        </div>
+        <div class="service-card-tag">Most Popular</div>
+      </div>
+      <div class="service-card" onclick="showPage('services')">
+        <img src="IMG_6460.jpg" alt="Ceramic Coating">
+        <div class="service-card-overlay">
+          <h3>Ceramic Coating</h3>
+          <p>Professional-grade nano-ceramic protection</p>
+        </div>
+        <div class="service-card-tag">Most Popular</div>
+      </div>
+      <div class="service-card" onclick="showPage('services')">
+        <img src="IMG_6461.jpg" alt="Ceramic Coating">
+        <div class="service-card-overlay">
+          <h3>Ceramic Coating</h3>
+          <p>Professional-grade nano-ceramic protection</p>
+        </div>
+        <div class="service-card-tag">Most Popular</div>
+      </div>
+      <div class="service-card" onclick="showPage('services')">
+        <img src="IMG_6472.jpg" alt="Ceramic Coating">
+        <div class="service-card-overlay">
+          <h3>Ceramic Coating</h3>
+          <p>Professional-grade nano-ceramic protection</p>
+        </div>
+        <div class="service-card-tag">Most Popular</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--dark); padding-top:80px; padding-bottom:80px;">
+    <div class="why-grid">
+      <div class="why-img">
+        <img src="IMG_6450.jpg" alt="Detail Work">
+      </div>
+      <div>
+        <span class="section-tag">Why Choose Us</span>
+        <h2 class="section-title">The <span>DoubleX</span><br>Difference</h2>
+        <div class="divider"></div>
+        <div class="why-features">
+          <div class="why-feature">
+            <div class="why-icon">
+              <svg width="22" height="22" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3"/><rect x="9" y="11" width="14" height="10" rx="2"/><circle cx="12" cy="16" r="1"/></svg>
+            </div>
+            <div>
+              <h4>Mobile Service</h4>
+              <p>We come to you — at your home, office, or anywhere in DFW. No drop-off required.</p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-icon">
+              <svg width="22" height="22" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h4>Professional-Grade Products</h4>
+              <p>We use only professional ceramic coating products rated 9H hardness for maximum durability.</p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-icon">
+              <svg width="22" height="22" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h4>Meticulous Attention to Detail</h4>
+              <p>Every vehicle is treated like our own. We don't cut corners — ever.</p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-icon">
+              <svg width="22" height="22" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Locally Owned &amp; Operated</h4>
+              <p>Dallas-based and community-driven. Real people, real results, real accountability.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <div>
+      <h2>Ready to Protect Your Investment?</h2>
+      <p>Get a free, no-obligation quote today. We serve all of DFW.</p>
+    </div>
+    <button class="btn-white" onclick="showPage('contact')">Book a Free Quote</button>
+  </div>
+
+  <section class="section testimonials">
+    <span class="section-tag">Reviews</span>
+    <h2 class="section-title">What Clients<br><span>Are Saying</span></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Absolutely incredible work on my Corvette. The ceramic coating is flawless and the paint looks better than when I bought it. Highly recommend DoubleX!"</p>
+        <div class="testimonial-author">— Michael R., Dallas TX</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"They came to my house, were on time, professional, and left my GMC Sierra looking brand new. The coating is still holding up beautifully months later."</p>
+        <div class="testimonial-author">— James T., Frisco TX</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Had my Porsche Taycan done and couldn't be happier. These guys know their stuff — attention to detail is next level. Worth every penny."</p>
+        <div class="testimonial-author">— Sarah L., Plano TX</div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /home -->
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<div class="page pt-nav" id="page-about">
+
+  <div class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('IMG_6459.jpg')"></div>
+    <div class="page-hero-content">
+      <div class="breadcrumb">Home <span>/ About</span></div>
+      <h1>About <span>DoubleX</span></h1>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="about-intro">
+      <div class="about-intro-img">
+        <img src="IMG_6473.jpg" alt="DoubleX Team">
+        <div class="img-accent">
+          <div class="img-accent-num">5★</div>
+          <div class="img-accent-text">Rated<br>Service</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="section-tag">Our Story</span>
+        <h2>Built on <span>Passion</span>,<br>Driven by <span>Excellence</span></h2>
+        <div class="divider"></div>
+        <p>DoubleX Ceramic Coating LLC was founded with one mission: to deliver premium paint protection and detailing services to car enthusiasts and everyday drivers across the Dallas–Fort Worth area.</p>
+        <p>As a mobile detailing operation, we believe your time is valuable. We bring our professional-grade equipment and products directly to you — whether that's your home, office, or anywhere in DFW. No drop-off, no waiting.</p>
+        <p>From classic Corvettes to modern supercars, daily drivers to weekend toys, we treat every vehicle with the same obsessive level of care and precision.</p>
+        <div class="about-vals">
+          <div class="val-item">Certified Applicators</div>
+          <div class="val-item">Mobile Service</div>
+          <div class="val-item">5-Star Rated</div>
+          <div class="val-item">DFW Coverage</div>
+          <div class="val-item">Pro-Grade Products</div>
+          <div class="val-item">Paint Correction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section about-process">
+    <span class="section-tag">How It Works</span>
+    <h2 class="section-title">Our <span>Process</span></h2>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Free Consultation</h4>
+        <p>We assess your vehicle and recommend the right service package for your needs and budget.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <img src="IMG_6464.jpg" alt="Paint Decontamination" style="width:100%;height:160px;object-fit:cover;margin-bottom:16px;">
+        <h4>Paint Decontamination</h4>
+        <p>Thorough wash, clay bar treatment, and iron decontamination to prep the surface.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <img src="IMG_6465.jpg" alt="Paint Correction" style="width:100%;height:160px;object-fit:cover;margin-bottom:16px;">
+        <h4>Paint Correction</h4>
+        <p>Swirls, scratches, and oxidation are removed to restore the paint to pristine condition.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <img src="IMG_6480.jpg" alt="Coating Application" style="width:100%;height:160px;object-fit:cover;margin-bottom:16px;object-position:center top;">
+        <h4>Coating Application</h4>
+        <p>Professional-grade ceramic coating is applied in a controlled environment for perfect results.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--dark2); text-align:center; padding:80px 8%;">
+    <span class="section-tag">Get Started</span>
+    <h2 class="section-title">Let's Protect<br><span>Your Vehicle</span></h2>
+    <p class="section-body" style="margin: 0 auto 36px; text-align:center;">Schedule your free consultation today. We'll come to you anywhere in the Dallas–Fort Worth area.</p>
+    <button class="btn-primary" onclick="showPage('contact')">Book a Free Quote</button>
+  </section>
+
+</div><!-- /about -->
+
+<!-- ═══════════ SERVICES ═══════════ -->
+<div class="page pt-nav" id="page-services">
+
+  <div class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('IMG_6465.jpg')"></div>
+    <div class="page-hero-content">
+      <div class="breadcrumb">Home <span>/ Services</span></div>
+      <h1>Our <span>Services</span></h1>
+    </div>
+  </div>
+
+  <section class="section">
+    <span class="section-tag">What We Offer</span>
+    <h2 class="section-title">Premium <span>Protection</span><br>Packages</h2>
+    <p class="section-body" style="margin-bottom:48px;">Every service is performed with professional-grade products and meticulous attention to detail. Pricing varies by vehicle size and condition — contact us for a precise quote.</p>
+
+    <div class="services-list">
+
+      <div class="service-row">
+        <div class="service-row-img"><img src="IMG_6474.jpg" alt="Ceramic Coating"></div>
+        <div class="service-row-body">
+          <h3>Ceramic Coating</h3>
+          <p>Our flagship service. A professionally applied nano-ceramic coating that bonds to your paint and provides years of hydrophobic protection, UV resistance, and a deep mirror gloss.</p>
+          <ul>
+            <li>9H Hardness</li><li>Hydrophobic</li><li>UV Protection</li><li>2–5 Year Durability</li>
+          </ul>
+        </div>
+        <div class="service-row-price">
+          <div class="price-label">Starting At</div>
+          <div class="price-val">$599</div>
+          <div class="price-note">Contact for exact quote</div>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-row-img"><img src="IMG_6465.jpg" alt="Paint Correction"></div>
+        <div class="service-row-body">
+          <h3>Paint Correction</h3>
+          <p>Using professional machine polishers and compounds, we remove swirl marks, light scratches, water spots, and oxidation — restoring your paint to better-than-new condition.</p>
+          <ul>
+            <li>Swirl Removal</li><li>Scratch Reduction</li><li>Water Spot Treatment</li><li>Oxidation Removal</li>
+          </ul>
+        </div>
+        <div class="service-row-price">
+          <div class="price-label">Starting At</div>
+          <div class="price-val">$399</div>
+          <div class="price-note">Contact for exact quote</div>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-row-img"><img src="IMG_6459.jpg" alt="Full Detail"></div>
+        <div class="service-row-body">
+          <h3>Full Detail</h3>
+          <p>Complete interior and exterior detailing package. Includes hand wash, clay bar, interior vacuum and wipe-down, glass cleaning, tire dressing, and a spray sealant.</p>
+          <ul>
+            <li>Exterior Wash</li><li>Clay Bar</li><li>Interior Deep Clean</li><li>Glass Treatment</li>
+          </ul>
+        </div>
+        <div class="service-row-price">
+          <div class="price-label">Starting At</div>
+          <div class="price-val">$199</div>
+          <div class="price-note">Contact for exact quote</div>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-row-img"><img src="IMG_6476.jpg" alt="Interior Detail"></div>
+        <div class="service-row-body">
+          <h3>Interior Detail</h3>
+          <p>Deep interior cleaning that includes extraction shampooing of carpets and seats, leather conditioning, steam cleaning, odor elimination, and UV protectant on all surfaces.</p>
+          <ul>
+            <li>Carpet Extraction</li><li>Leather Conditioning</li><li>Steam Cleaning</li><li>Odor Removal</li>
+          </ul>
+        </div>
+        <div class="service-row-price">
+          <div class="price-label">Starting At</div>
+          <div class="price-val">$149</div>
+          <div class="price-note">Contact for exact quote</div>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-row-img"><img src="IMG_6488.jpg" alt="Wheel & Tire Coating"></div>
+        <div class="service-row-body">
+          <h3>Wheel & Tire Coating</h3>
+          <p>Ceramic coating applied to your wheels and wheel barrels for long-lasting brake dust repellency, easy cleaning, and a brilliant gloss that lasts.</p>
+          <ul>
+            <li>Brake Dust Repellent</li><li>Ceramic Protected</li><li>All Wheel Types</li>
+          </ul>
+        </div>
+        <div class="service-row-price">
+          <div class="price-label">Starting At</div>
+          <div class="price-val">$199</div>
+          <div class="price-note">Per set of 4</div>
+        </div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-row-img"><img src="IMG_6450.jpg" alt="Headlight Restoration"></div>
+        <div class="service-row-body">
+          <h3>Headlight Restoration</h3>
+          <p>Restore clarity to yellowed, oxidized, or hazy headlights. Our multi-stage process removes UV damage and applies a protective coating to prevent future yellowing.</p>
+          <ul>
+            <li>UV Damage Removal</li><li>Clarity Restored</li><li>Protective Coating</li>
+          </ul>
+        </div>
+        <div class="service-row-price">
+          <div class="price-label">Starting At</div>
+          <div class="price-val">$99</div>
+          <div class="price-note">Per pair</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="services-note">
+      <svg width="28" height="28" fill="none" stroke="#C8102E" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p><strong>Pricing Note:</strong> All prices are starting points. Final pricing depends on vehicle size, paint condition, and services selected. <strong>Contact us for a free, accurate quote</strong> — we'll assess your vehicle and give you a transparent breakdown with no surprises.</p>
+    </div>
+
+    <div style="text-align:center; margin-top:56px;">
+      <button class="btn-primary" onclick="showPage('contact')">Get a Free Quote</button>
+    </div>
+
+  </section>
+
+</div><!-- /services -->
+
+<!-- ═══════════ GALLERY ═══════════ -->
+<div class="page pt-nav" id="page-gallery">
+
+  <div class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('IMG_6456.jpg')"></div>
+    <div class="page-hero-content">
+      <div class="breadcrumb">Home <span>/ Gallery</span></div>
+      <h1>Our <span>Work</span></h1>
+    </div>
+  </div>
+
+  <section class="section">
+    <span class="section-tag">Portfolio</span>
+    <h2 class="section-title" style="margin-bottom:32px;">Results That<br><span>Speak</span></h2>
+
+    <div class="gallery-filter">
+      <button class="filter-btn active" onclick="filterGallery('all', this)">All Vehicles</button>
+      <button class="filter-btn" onclick="filterGallery('classic', this)">Classic Cars</button>
+      <button class="filter-btn" onclick="filterGallery('truck', this)">Trucks / SUVs</button>
+      <button class="filter-btn" onclick="filterGallery('exotic', this)">Exotics</button>
+      <button class="filter-btn" onclick="filterGallery('sport', this)">Sport Cars</button>
+    </div>
+
+    <div class="gallery-masonry" id="galleryGrid">
+
+      <div class="gallery-item" data-cat="classic" onclick="openLightbox(0)">
+        <img src="IMG_6446.jpg" alt="1966 Corvette Red">
+        <div class="gallery-item-overlay">
+          <svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+      </div>
+      <div class="gallery-item" data-cat="classic" onclick="openLightbox(1)">
+        <img src="IMG_6447.jpg" alt="1966 Corvette Side">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="truck" onclick="openLightbox(2)">
+        <img src="IMG_6450.jpg" alt="GMC Sierra AT4X">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="truck" onclick="openLightbox(3)">
+        <img src="IMG_6451.jpg" alt="GMC Sierra Rear">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="truck" onclick="openLightbox(4)">
+        <img src="IMG_6452.jpg" alt="GMC Hummer EV Orange">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="truck" onclick="openLightbox(5)">
+        <img src="IMG_6453.jpg" alt="GMC Hummer EV">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="exotic" onclick="openLightbox(6)">
+        <img src="IMG_6454.jpg" alt="Porsche Taycan Black">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="exotic" onclick="openLightbox(7)">
+        <img src="IMG_6455.jpg" alt="Porsche Taycan Side">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="exotic" onclick="openLightbox(8)">
+        <img src="IMG_6456.jpg" alt="Porsche Taycan Badge">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="sport" onclick="openLightbox(9)">
+        <img src="IMG_6459.jpg" alt="Toyota Supra Yellow Wash">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="sport" onclick="openLightbox(10)">
+        <img src="IMG_6460.jpg" alt="Toyota Supra Yellow">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="exotic" onclick="openLightbox(11)">
+        <img src="IMG_6461.jpg" alt="McLaren 570S Green">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="sport" onclick="openLightbox(12)">
+        <img src="IMG_6472.jpg" alt="Tesla Model Y Black">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="sport" onclick="openLightbox(13)">
+        <img src="IMG_6473.jpg" alt="Tesla Model Y Front">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="sport" onclick="openLightbox(14)">
+        <img src="IMG_6474.jpg" alt="Camaro SS Black">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="sport" onclick="openLightbox(15)">
+        <img src="IMG_6475.jpg" alt="Camaro SS Side">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="sport" onclick="openLightbox(16)">
+        <img src="IMG_6476.jpg" alt="Mustang GT Wide Body">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="sport" onclick="openLightbox(17)">
+        <img src="IMG_6477.jpg" alt="Mustang GT Rear">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="exotic" onclick="openLightbox(18)">
+        <img src="IMG_6478.jpg" alt="Audi RS6 Avant Black">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="sport" onclick="openLightbox(19)">
+        <img src="IMG_6448.jpg" alt="Dodge Charger Black">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="sport" onclick="openLightbox(20)">
+        <img src="IMG_6449.jpg" alt="Dodge Charger Side">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="truck" onclick="openLightbox(21)">
+        <img src="IMG_6469.jpg" alt="Tesla Model X Red">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+      <div class="gallery-item" data-cat="truck" onclick="openLightbox(22)">
+        <img src="IMG_6470.jpg" alt="Tesla Model X Red Side">
+        <div class="gallery-item-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+    </div>
+  </section>
+
+</div><!-- /gallery -->
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <button class="lightbox-prev" onclick="changeLightbox(-1)">‹</button>
+  <img src="" alt="" id="lightboxImg">
+  <button class="lightbox-next" onclick="changeLightbox(1)">›</button>
+</div>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<div class="page pt-nav" id="page-contact">
+
+  <div class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('IMG_6447.jpg')"></div>
+    <div class="page-hero-content">
+      <div class="breadcrumb">Home <span>/ Contact</span></div>
+      <h1>Get a <span>Free Quote</span></h1>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="contact-layout">
+
+      <div class="contact-info">
+        <h2>Let's Talk<br>About Your <span>Vehicle</span></h2>
+        <p>We're a mobile service — we come to you anywhere in the Dallas–Fort Worth area. Reach out and we'll get back to you within 24 hours.</p>
+
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg width="20" height="20" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-detail-label">Phone</div>
+              <div class="contact-detail-val"><a href="tel:4698716863">(469) 871-6863</a></div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg width="20" height="20" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-detail-label">Service Area</div>
+              <div class="contact-detail-val">Dallas–Fort Worth, TX</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg width="20" height="20" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="contact-detail-label">Hours</div>
+              <div class="contact-detail-val" style="font-size:14px;font-weight:400;">Mon–Sat: 8:00 AM – 6:00 PM<br>Sun: By Appointment</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg width="20" height="20" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <div>
+              <div class="contact-detail-label">Service Type</div>
+              <div class="contact-detail-val">Mobile — We Come to You</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="https://www.facebook.com/profile.php?id=100064049720278" target="_blank" class="social-link" title="Facebook">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/xxdetailing/" target="_blank" class="social-link" title="Instagram">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@xxdetailingg" target="_blank" class="social-link" title="TikTok">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.29 6.29 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.19 8.19 0 004.79 1.53V6.77a4.85 4.85 0 01-1.02-.08z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <h3>Request a Free Quote</h3>
+        <form id="contactForm" action="https://formspree.io/f/xkgwndyv" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name *</label>
+              <input type="text" name="first_name" placeholder="John" required>
+            </div>
+            <div class="form-group">
+              <label>Last Name *</label>
+              <input type="text" name="last_name" placeholder="Smith" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone *</label>
+              <input type="tel" name="phone" placeholder="(469) 555-0100" required>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="john@email.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Vehicle (Year / Make / Model) *</label>
+            <input type="text" name="vehicle" placeholder="e.g. 2023 Porsche Taycan" required>
+            </div>
+          <div class="form-group">
+            <label>Service Interested In *</label>
+            <select name="service" required>
+              <option value="" disabled selected>Select a service...</option>
+              <option>Ceramic Coating</option>
+              <option>Paint Correction</option>
+              <option>Full Detail</option>
+              <option>Interior Detail</option>
+              <option>Wheel & Tire Coating</option>
+              <option>Headlight Restoration</option>
+              <option>Multiple Services / Not Sure</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Your Location / City</label>
+            <input type="text" name="location" placeholder="e.g. Frisco, TX">
+          </div>
+          <div class="form-group">
+            <label>Additional Notes</label>
+            <textarea name="message" placeholder="Tell us about your vehicle's condition, any specific concerns, or questions..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;text-align:center;">Submit Request</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          ✅ Thank you! We'll be in touch within 24 hours.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="map-wrap">
+      <h3>Service Area — Dallas–Fort Worth</h3>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d429224.8097987283!2d-97.0945!3d32.7767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c19f77b45974b%3A0xb9ec9ba4f647678f!2sDallas%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+</div><!-- /contact -->
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="IMG_6466.jpg" alt="DoubleX Ceramic Coating">
+      <p>Premium mobile ceramic coating and auto detailing serving the Dallas–Fort Worth area. We come to you.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('about')">About</a></li>
+        <li><a onclick="showPage('services')">Services</a></li>
+        <li><a onclick="showPage('gallery')">Gallery</a></li>
+        <li><a onclick="showPage('contact')">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a onclick="showPage('services')">Ceramic Coating</a></li>
+        <li><a onclick="showPage('services')">Paint Correction</a></li>
+        <li><a onclick="showPage('services')">Full Detail</a></li>
+        <li><a onclick="showPage('services')">Interior Detail</a></li>
+        <li><a onclick="showPage('services')">Wheel Coating</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>
+        <a href="tel:4698716863" style="color:var(--red);text-decoration:none;">(469) 871-6863</a><br><br>
+        Dallas–Fort Worth, TX<br><br>
+        Mon–Sat: 8 AM – 6 PM<br>
+        Sun: By Appointment
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 DoubleX Ceramic Coating LLC · All Rights Reserved</p>
+    <div class="footer-bottom-links">
+      <a href="https://www.facebook.com/profile.php?id=100064049720278" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/xxdetailing/" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@xxdetailingg" target="_blank">TikTok</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── PAGE NAVIGATION ──
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    const link = document.querySelector(`.nav-links a[onclick*="'${id}'"]`);
+    if (link) link.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── HAMBURGER ──
+  function toggleMenu() {
+    document.getElementById('hamburger').classList.toggle('open');
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // ── GALLERY FILTER ──
+  function filterGallery(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      if (cat === 'all' || item.dataset.cat === cat) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  // ── LIGHTBOX ──
+  const galleryImgs = [
+    'IMG_6446.jpg','IMG_6447.jpg','IMG_6450.jpg','IMG_6451.jpg',
+    'IMG_6452.jpg','IMG_6453.jpg','IMG_6454.jpg','IMG_6455.jpg',
+    'IMG_6456.jpg','IMG_6459.jpg','IMG_6460.jpg','IMG_6461.jpg',
+    'IMG_6472.jpg','IMG_6473.jpg','IMG_6474.jpg','IMG_6475.jpg',
+    'IMG_6476.jpg','IMG_6477.jpg','IMG_6478.jpg',
+    'IMG_6448.jpg','IMG_6449.jpg','IMG_6469.jpg','IMG_6470.jpg'
+  ];
+  let currentImg = 0;
+
+  function openLightbox(idx) {
+    currentImg = idx;
+    document.getElementById('lightboxImg').src = galleryImgs[idx];
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function changeLightbox(dir) {
+    currentImg = (currentImg + dir + galleryImgs.length) % galleryImgs.length;
+    document.getElementById('lightboxImg').src = galleryImgs[currentImg];
+  }
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') changeLightbox(-1);
+    if (e.key === 'ArrowRight') changeLightbox(1);
+  });
+
+  // ── FORM ──
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('button[type=submit]');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+        } else {
+          btn.textContent = 'Error — Try Again';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.textContent = 'Error — Try Again';
+        btn.disabled = false;
+      }
+    });
+  }
+</script>
+</body>
+</html>
